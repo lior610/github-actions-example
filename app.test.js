@@ -5,6 +5,6 @@ describe('GET /', () => {
   it('should return 200 and expected message', async () => {
     const res = await request(app).get('/');
     expect(res.statusCode).toBe(200);
-    expect(res.text).toBe('Hello from the sample app!');
+    expect(res.text).toBe('This is the new app!');
   });
 });
