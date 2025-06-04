@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello from the new version sample app!');
+  res.send('Hello from the sample app!');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+module.exports = app;  // <-- export for tests
+
+// Only start server if not in test
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+}
