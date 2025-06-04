@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitlab-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitlab-example
+  template:
+    metadata:
+      labels:
+        app: gitlab-example
+    spec:
+      containers:
+        - name: gitlab-example
+          image: lior610/actions-example:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
